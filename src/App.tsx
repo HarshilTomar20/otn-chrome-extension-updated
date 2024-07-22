@@ -5,10 +5,10 @@ import { getMatchData } from './utils/getMatchData';
 import BrandLogo from './components/shared/brand-logo';
 import ThemeToggle from './components/shared/theme-toggle';
 import TeamScores from './components/MatchCard/team-scores';
-import TossResult from './components/MatchCard/toss-result';
-import ScrollerLeft from './components/micro/card-scroll-left';
-import ScrollerRight from './components/micro/card-scroll-right';
-import MatchSeriesInfo from './components/micro/card-match-series-info';
+import ScrollerLeft from './components/micro/cardscroll-left';
+import ScrollerRight from './components/micro/cardscroll-right';
+import MatchSeriesInfo from './components/micro/match-series-info';
+import MatchStatus from './components/MatchCard/match-status';
 
 function App() {
   const [matches, setMatches] = useState<Match[]>([]);
@@ -65,22 +65,21 @@ function App() {
         <ThemeToggle HandleThemeSwitch={HandleThemeSwitch} theme={theme} />
       </div>
 
-
+      {/* Card Component */}
+      <MatchSeriesInfo currentMatch={currentMatch}/>
       <div className='flex'>
         <ScrollerLeft goToPreviousMatch={goToPreviousMatch} matches={matches}/>
         <div className='border-black dark:border-zinc-600 w-11/12 rounded-t-lg text-center m-4'>
           <div className='px-4 pt-4'>
-            <div className='flex text-xs'>
-              <MatchSeriesInfo currentMatch={currentMatch}/>
-            </div>
             <TeamScores currentMatch={currentMatch} Bat={Bat}/>
           </div>
         </div>
         <ScrollerRight matches={matches} goToNextMatch={goToNextMatch}/>
       </div>
 
+      {/* Match Status */}
       <div className='w-11/12 mx-auto'>
-        <TossResult currentMatch={currentMatch}/>
+        <MatchStatus currentMatch={currentMatch}/>
       </div>
     </div>
   );
