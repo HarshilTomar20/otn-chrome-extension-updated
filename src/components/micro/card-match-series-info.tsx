@@ -17,9 +17,12 @@ export default function MatchSeriesInfo({currentMatch}: MatchSeriesInfoProps) {
         }
         </text> */}
         <div className="flex">
-            <text className=" bg-gradient-to-r from-blue-600 to-white text-transparent bg-clip-text inline-block dark:from-gray-600 dark:to-black">
-                {currentMatch?.oSeries?.sTitle}
-            </text>
+            <div className="flex bg-gradient-to-r from-[#dad6f4] to-white p-2 dark:bg-gradient-to-r dark:from-slate-500 dark:to-[#121110]">
+                <text className='text-[#252775] dark:text-[#ABABAB] ml-2'>
+                    {currentMatch?.oSeries?.sTitle}
+                </text>
+            </div>
+            <img src="/public/live.png" className="pl-auto mt-1 h-5" alt="live"/>
         </div>
     </>
   )

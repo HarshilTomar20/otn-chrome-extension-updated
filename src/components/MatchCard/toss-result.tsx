@@ -1,13 +1,13 @@
 interface TossResultProps {
-  currentMatch: any
+  currentMatch: any;
 }
 
-export default function TossResult({currentMatch}: TossResultProps) {
+export default function TossResult({ currentMatch }: TossResultProps) {
   return (
-    <div className='my-4 text-center border-t-2 p-2 border-b-2'>
-      <text className='text-orange-600 text-left'>{
-        currentMatch?.sStatusNote ?  currentMatch?.sStatusNote : currentMatch?.oToss?.sText}</text>
+    <div className='my-4 text-center border-t border-b border-gray-300 p-2' style={{ borderTopWidth: '0.5px', borderBottomWidth: '0.5px' }}>
+      <span className='text-[#DA3400] text-left'>
+        {currentMatch?.sStatusNote ? currentMatch?.sStatusNote : currentMatch?.oToss?.sText}
+      </span>
     </div>
-  )
+  );
 }
-
