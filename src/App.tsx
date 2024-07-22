@@ -23,14 +23,10 @@ function App() {
       setMatches(data);
       console.log(data);
     };
-
-    // Fetch data immediately on mount
     fetchData();
 
-    // Set interval to fetch data every 3 seconds
+    // 3 seconds client side polling
     const interval = setInterval(fetchData, 3000);
-
-    // Clear interval on component unmount
     return () => clearInterval(interval);
   }, [url]);
 
