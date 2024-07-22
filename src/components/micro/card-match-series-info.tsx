@@ -22,7 +22,7 @@ export default function MatchSeriesInfo({currentMatch}: MatchSeriesInfoProps) {
                     {currentMatch?.oSeries?.sTitle}
                 </text>
             </div>
-            <img src="/public/live.png" className="pl-auto mt-1 h-5" alt="live"/>
+            <img src="/src/assets/live.png" className="pl-auto mt-1 h-5" alt="live"/>
         </div>
     </>
   )
