@@ -37,21 +37,26 @@ export default function TeamScores({ currentMatch, Bat }: TeamScoresProps) {
                         </>
                     ) : (
                         <>
-                            <div className="text-gray-500 text-thin">
-                                {Bat}
-                            </div>
+                            {currentMatch.oTeamScoreB?.sScoresFull ? (
+                                <div className="text-gray-500 text-thin">
+                                    {Bat}
+                                </div>
+                            ) : (
+                                <div className="my-7">
+                                </div>
+                            )}
                         </>
                     )}
                 </span>       
             </div>
 
             <div className="text-[#252775] dark:text-white my-auto w-1/5">
-              <text className="my-auto py-4 text-sm uppercase">
-                {startTime}
-              </text>
-              <div className="py-2 mt-2 border border-[#252775] dark:border-[#5E5E5E] rounded-lg">
-                  VS
-              </div>
+                <text className="my-auto py-4 text-sm uppercase">
+                    {startTime}
+                </text>
+                <div className="py-2 mt-2 border border-[#252775] dark:border-[#5E5E5E] rounded-lg">
+                    VS
+                </div>
             </div>
 
             {/* Team B */}
@@ -74,7 +79,14 @@ export default function TeamScores({ currentMatch, Bat }: TeamScoresProps) {
                         </>
                     ) : (
                         <div className="text-gray-500 text-thin">
-                            {Bat}
+                            {currentMatch.oTeamScoreA?.sScoresFull ? (
+                                // If Team A has a score, show Bat
+                                Bat
+                            ) : (
+                                // Show empty string if both scores are null
+                                <div className="my-7">
+                                </div>
+                            )}
                         </div>
                     )}
                 </span> 
