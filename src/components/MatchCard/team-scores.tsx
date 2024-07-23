@@ -16,12 +16,12 @@ export default function TeamScores({ currentMatch, Bat }: TeamScoresProps) {
     });
 
     return (
-        <div className="flex space-x-14 mt-2 text-center">
+        <div className="flex space-x-10 mt-2 text-center">
             {/* Team A */}
             <div className="flex flex-col">
                 <span className='font-bold text-lg'>{currentMatch.oTeamScoreA?.oTeam?.sAbbr}</span>
                 <img 
-                    className="w-20 mr-2 mt-1 mx-auto my-2"
+                    className="w-20 mr-2 mt-1 mx-auto my-2 rounded-full border-2 border-black dark:border-orange-600"
                     src={currentMatch.oTeamScoreA?.oTeam?.oImg?.sUrl ? `${S3_PREFIX}${currentMatch?.oTeamScoreA?.oTeam?.oImg?.sUrl}` : 
                     FlagTeam}
                 />
@@ -29,14 +29,18 @@ export default function TeamScores({ currentMatch, Bat }: TeamScoresProps) {
                     {currentMatch.oTeamScoreA?.sScoresFull ? (
                         <>
                             {currentMatch.oTeamScoreA.sScoresFull.split(' (')[0]}
-                            <span className='text-sm text-gray-500'> 
-                                ({currentMatch.oTeamScoreA.sScoresFull.split(' (')[1]?.replace(' ov)', '')})
-                            </span>
+                            {currentMatch.oTeamScoreA.sScoresFull.split(' (')[1]?.trim() && (
+                                <span className='text-sm text-gray-500'> 
+                                    {` (${currentMatch.oTeamScoreA.sScoresFull.split(' (')[1]?.replace(' ov)', '')} ov)`}
+                                </span>
+                            )}
                         </>
                     ) : (
-                        Bat
+                        <>
+                            {Bat}
+                        </>
                     )}
-                </span>      
+                </span>       
             </div>
 
             <div className="text-[#252775] dark:text-white my-auto">
@@ -52,7 +56,7 @@ export default function TeamScores({ currentMatch, Bat }: TeamScoresProps) {
             <div className="flex flex-col text-center">
                 <span className='font-bold text-lg pl-2'>{currentMatch.oTeamScoreB?.oTeam?.sAbbr}</span>
                 <img 
-                    className="w-20 ml-2 mt-1 mx-auto my-2"
+                    className="w-20 ml-2 mt-1 mx-auto my-2 rounded-full border-2 border-black dark:border-orange-600"
                     src={currentMatch.oTeamScoreB?.oTeam?.oImg?.sUrl ? `${S3_PREFIX}${currentMatch?.oTeamScoreB?.oTeam?.oImg?.sUrl}` : 
                     FlagTeam}
                 />
@@ -60,14 +64,18 @@ export default function TeamScores({ currentMatch, Bat }: TeamScoresProps) {
                     {currentMatch.oTeamScoreB?.sScoresFull ? (
                         <>
                             {currentMatch.oTeamScoreB.sScoresFull.split(' (')[0]}
-                            <span className='text-sm text-gray-500'> 
-                                ({currentMatch.oTeamScoreB.sScoresFull.split(' (')[1]?.replace(' ov)', '')})
-                            </span>
+                            {currentMatch.oTeamScoreB.sScoresFull.split(' (')[1]?.trim() && (
+                                <span className='text-sm text-gray-500'> 
+                                    {` (${currentMatch.oTeamScoreB.sScoresFull.split(' (')[1]?.replace(' ov)', '')} ov)`}
+                                </span>
+                            )}
                         </>
                     ) : (
-                        Bat
+                        <>
+                            {Bat}
+                        </>
                     )}
-                </span>  
+                </span> 
             </div>
         </div>
     );

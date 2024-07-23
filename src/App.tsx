@@ -66,13 +66,13 @@ function App() {
         <>
         <MatchSeriesInfo currentMatch={currentMatch}/>
           <div className='flex'>
-            <ScrollerLeft goToPreviousMatch={goToPreviousMatch} matches={matches}/>
+            <ScrollerLeft theme={theme} goToPreviousMatch={goToPreviousMatch} matches={matches}/>
             <div className='border-black dark:border-zinc-600 w-11/12 rounded-t-lg text-center m-4'>
               <div className='px-4'>
                   <TeamScores currentMatch={currentMatch} Bat={Bat}/> 
               </div>
             </div>
-            <ScrollerRight matches={matches} goToNextMatch={goToNextMatch}/>
+            <ScrollerRight theme={theme} matches={matches} goToNextMatch={goToNextMatch}/>
           </div>
         <div className='w-11/12 mx-auto'>
           <MatchStatus currentMatch={currentMatch}/>
