@@ -13,34 +13,35 @@ import MatchStatus from './components/MatchCard/match-status';
 function App() {
   const [matches, setMatches] = useState<Match[]>([]);
   const [currentMatchIndex, setCurrentMatchIndex] = useState(0);
-  const [theme, setTheme]= useState("light");
-  const Bat="Yet to Bat";
+  const [theme, setTheme] = useState("light");
+  const [loading, setLoading] = useState(true); // Loading state
+  const Bat = "Yet to Bat";
   const url = 'https://match-management.api.oneturf.news/api/fetchMiniScorecardData';
 
   useEffect(() => {
     const fetchData = async () => {
       const data = await getMatchData(url);
       setMatches(data);
-      console.log(data);
+      setLoading(false); 
     };
     fetchData();
 
-    // 3 seconds client side polling
+    // 3 seconds client-side polling
     const interval = setInterval(fetchData, 3000);
     return () => clearInterval(interval);
   }, [url]);
 
-  useEffect(()=> {
+  useEffect(() => {
     if (theme === "dark") {
-      document.documentElement.classList.add("dark")
+      document.documentElement.classList.add("dark");
     } else {
-      document.documentElement.classList.remove("dark")
+      document.documentElement.classList.remove("dark");
     }
-  }, [theme])
+  }, [theme]);
 
-  const HandleThemeSwitch= ()=> {
-    setTheme( theme === "dark" ? "light" : "dark")
-  }
+  const HandleThemeSwitch = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
 
   const goToNextMatch = () => {
     setCurrentMatchIndex((prevIndex) => (prevIndex + 1) % matches.length);
@@ -51,44 +52,43 @@ function App() {
   };
 
   const currentMatch = matches[currentMatchIndex] || {};
-  console.log(matches);
 
   return (
     <div className='container w-[500px] bg-[#FFFFFF] text-black dark:bg-[#121110] dark:text-white pb-2'>
 
       {/* Navbar */}
       <div className='flex bg-[#252775] dark:bg-[#2E2E2E] py-2'>
-        <BrandLogo/>
+        <BrandLogo />
         <ThemeToggle HandleThemeSwitch={HandleThemeSwitch} theme={theme} />
       </div>
 
-      {matches.length > 0 && ( 
+      {loading ? ( 
+        <div className='flex justify-center items-center h-64'>
+          <span className='text-lg text-gray-500'>Loading...</span>
+        </div>
+      ) : matches.length > 0 ? ( 
         <>
-        <MatchSeriesInfo theme={theme} currentMatch={currentMatch}/>
+          <MatchSeriesInfo theme={theme} currentMatch={currentMatch} />
           <div className='flex'>
-            <ScrollerLeft theme={theme} goToPreviousMatch={goToPreviousMatch} matches={matches}/>
-            <div className='border-black dark:border-zinc-600 w-11/12 rounded-t-lg text-center m-4'>
-              <div className='px-4'>
-                  <TeamScores currentMatch={currentMatch} Bat={Bat}/> 
+            <ScrollerLeft theme={theme} goToPreviousMatch={goToPreviousMatch} matches={matches} />
+            <div className='border-black dark:border-zinc-600 w-11/12 rounded-t-lg text-center'>
+              <div>
+                <TeamScores currentMatch={currentMatch} Bat={Bat} /> 
               </div>
             </div>
-            <ScrollerRight theme={theme} matches={matches} goToNextMatch={goToNextMatch}/>
+            <ScrollerRight theme={theme} matches={matches} goToNextMatch={goToNextMatch} />
           </div>
-        <div className='w-11/12 mx-auto'>
-          <MatchStatus currentMatch={currentMatch}/>
+          <div className='w-11/12 mx-auto'>
+            <MatchStatus currentMatch={currentMatch} />
+          </div>
+        </>
+      ) : (
+        <div className='flex w-[500px]'>
+          <div className='border-black w-11/12 text-center mt-20 text-[#585858] font-thin'>
+            No Ongoing Live Match ! 
+            <br /> See more at <a className='text-orange-600 font-bold underline' href="https://www.oneturf.news/" target='_blank' rel="noopener noreferrer">ONETURF</a>
+          </div>
         </div>
-        </>
-      )}
-
-      {matches.length === 0 && (
-        <>
-          <div className='flex w-[500px]'>
-            <div className='border-black w-11/12 text-center mt-20 text-[#585858] font-thin'>
-              No Ongoing Live Match ! 
-              <br /> See more at <a className='text-orange-600 font-bold underline' href="https://www.oneturf.news/" target='_blank'>ONETURF</a>
-            </div>
-          </div>
-        </>
       )}
     </div>
   );
