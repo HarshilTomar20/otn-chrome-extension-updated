@@ -37,7 +37,9 @@ export default function TeamScores({ currentMatch, Bat }: TeamScoresProps) {
                         </>
                     ) : (
                         <>
-                            {Bat}
+                            <div className="text-gray-500">
+                                {Bat}
+                            </div>
                         </>
                     )}
                 </span>       
@@ -71,9 +73,9 @@ export default function TeamScores({ currentMatch, Bat }: TeamScoresProps) {
                             )}
                         </>
                     ) : (
-                        <>
+                        <div className="text-gray-500">
                             {Bat}
-                        </>
+                        </div>
                     )}
                 </span> 
             </div>
