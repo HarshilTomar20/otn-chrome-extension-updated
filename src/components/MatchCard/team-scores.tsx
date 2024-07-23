@@ -16,9 +16,9 @@ export default function TeamScores({ currentMatch, Bat }: TeamScoresProps) {
     });
 
     return (
-        <div className="flex space-x-10 mt-2 text-center">
+        <div className="flex mt-2 text-center">
             {/* Team A */}
-            <div className="flex flex-col">
+            <div className="flex flex-col mr-10">
                 <span className='font-bold text-lg'>{currentMatch.oTeamScoreA?.oTeam?.sAbbr}</span>
                 <img 
                     className="w-20 p-1 mr-2 mt-1 mx-auto my-2 rounded-full border-2 border-black dark:border-orange-600"
@@ -43,7 +43,7 @@ export default function TeamScores({ currentMatch, Bat }: TeamScoresProps) {
                 </span>       
             </div>
 
-            <div className="text-[#252775] dark:text-white my-auto">
+            <div className="text-[#252775] dark:text-white my-auto mr-10">
               <text className="my-auto py-4 text-sm uppercase">
                 {startTime}
               </text>
