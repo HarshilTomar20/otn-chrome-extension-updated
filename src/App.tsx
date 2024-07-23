@@ -82,7 +82,7 @@ function App() {
 
       {matches.length === 0 && (
         <>
-          <div className='flex h-[200px]'>
+          <div className='flex w-[500px]'>
             <div className='border-black w-11/12 text-center mt-20 text-[#585858] font-thin'>
               No Ongoing Live Match ! 
               <br /> See more at <a className='text-orange-600 font-bold underline' href="https://www.oneturf.news/" target='_blank'>ONETURF</a>
