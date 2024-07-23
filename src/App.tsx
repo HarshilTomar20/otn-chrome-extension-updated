@@ -51,6 +51,7 @@ function App() {
   };
 
   const currentMatch = matches[currentMatchIndex] || {};
+  console.log(matches);
 
   return (
     <div className='container w-[500px] bg-[#FFFFFF] text-black dark:bg-[#121110] dark:text-white pb-2'>
@@ -61,22 +62,36 @@ function App() {
         <ThemeToggle HandleThemeSwitch={HandleThemeSwitch} theme={theme} />
       </div>
 
-      {/* Card Component */}
-      <MatchSeriesInfo currentMatch={currentMatch}/>
-      <div className='flex'>
-        <ScrollerLeft goToPreviousMatch={goToPreviousMatch} matches={matches}/>
-        <div className='border-black dark:border-zinc-600 w-11/12 rounded-t-lg text-center m-4'>
-          <div className='px-4 pt-4'>
-            <TeamScores currentMatch={currentMatch} Bat={Bat}/>
+      {/* {currentMatch || Object.keys(currentMatch).length === 0 || matches.length === 0 ?  */}
+      {/* currenMatch */} 
+      {matches.length > 0 && ( 
+        <>
+        <MatchSeriesInfo currentMatch={currentMatch}/>
+          <div className='flex'>
+            <ScrollerLeft goToPreviousMatch={goToPreviousMatch} matches={matches}/>
+            <div className='border-black dark:border-zinc-600 w-11/12 rounded-t-lg text-center m-4'>
+              <div className='px-4 pt-4'>
+                  <TeamScores currentMatch={currentMatch} Bat={Bat}/> 
+              </div>
+            </div>
+            <ScrollerRight matches={matches} goToNextMatch={goToNextMatch}/>
           </div>
+        <div className='w-11/12 mx-auto'>
+          <MatchStatus currentMatch={currentMatch}/>
         </div>
-        <ScrollerRight matches={matches} goToNextMatch={goToNextMatch}/>
-      </div>
+        </>
+      )}
 
-      {/* Match Status */}
-      <div className='w-11/12 mx-auto'>
-        <MatchStatus currentMatch={currentMatch}/>
-      </div>
+      {matches.length === 0 && (
+        <>
+          <div className='flex h-[200px]'>
+            <div className='border-black w-full rounded-t-lg text-center mt-20 text-[#585858] font-thin'>
+              No Ongoing Live Match ! 
+              <br /> See more at <a className='text-orange-600 font-bold' href="https://www.oneturf.news/" target='_blank'>ONETURF</a>
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 }
