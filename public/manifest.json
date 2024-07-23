@@ -2,6 +2,7 @@
     "manifest_version": 3,
     "version": "1.0.0",
     "name": "One Turf Cricket",
+    "description": "OneTurfNews is a globally recognized sports content platform covering the worlds biggest sports and esports subjects for die-hard sports enthusiasts.",
     "action": {
         "default_popup": "index.html"
     },

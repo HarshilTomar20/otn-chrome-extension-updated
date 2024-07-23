@@ -62,15 +62,13 @@ function App() {
         <ThemeToggle HandleThemeSwitch={HandleThemeSwitch} theme={theme} />
       </div>
 
-      {/* {currentMatch || Object.keys(currentMatch).length === 0 || matches.length === 0 ?  */}
-      {/* currenMatch */} 
       {matches.length > 0 && ( 
         <>
         <MatchSeriesInfo currentMatch={currentMatch}/>
           <div className='flex'>
             <ScrollerLeft goToPreviousMatch={goToPreviousMatch} matches={matches}/>
             <div className='border-black dark:border-zinc-600 w-11/12 rounded-t-lg text-center m-4'>
-              <div className='px-4 pt-4'>
+              <div className='px-4'>
                   <TeamScores currentMatch={currentMatch} Bat={Bat}/> 
               </div>
             </div>
@@ -85,9 +83,9 @@ function App() {
       {matches.length === 0 && (
         <>
           <div className='flex h-[200px]'>
-            <div className='border-black w-full rounded-t-lg text-center mt-20 text-[#585858] font-thin'>
+            <div className='border-black w-11/12 text-center mt-20 text-[#585858] font-thin'>
               No Ongoing Live Match ! 
-              <br /> See more at <a className='text-orange-600 font-bold' href="https://www.oneturf.news/" target='_blank'>ONETURF</a>
+              <br /> See more at <a className='text-orange-600 font-bold underline' href="https://www.oneturf.news/" target='_blank'>ONETURF</a>
             </div>
           </div>
         </>

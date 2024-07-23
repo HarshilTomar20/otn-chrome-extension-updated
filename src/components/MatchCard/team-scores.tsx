@@ -9,13 +9,17 @@ interface TeamScoresProps {
 
 export default function TeamScores({ currentMatch, Bat }: TeamScoresProps) {
     // Extract and format the start time
-    const startTime = new Date(currentMatch.dStartDate).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    const startTime = new Date(currentMatch.dStartDate).toLocaleTimeString([], { 
+        hour: '2-digit', 
+        minute: '2-digit',
+        hour12: true
+    });
 
     return (
-        <div className="flex space-x-14 mt-2">
+        <div className="flex space-x-14 mt-2 text-center">
             {/* Team A */}
             <div className="flex flex-col">
-                <span className='font-bold'>{currentMatch.oTeamScoreA?.oTeam?.sAbbr}</span>
+                <span className='font-bold text-lg'>{currentMatch.oTeamScoreA?.oTeam?.sAbbr}</span>
                 <img 
                     className="w-20 mr-2 mt-1 mx-auto my-2"
                     src={currentMatch.oTeamScoreA?.oTeam?.oImg?.sUrl ? `${S3_PREFIX}${currentMatch?.oTeamScoreA?.oTeam?.oImg?.sUrl}` : 
@@ -36,7 +40,7 @@ export default function TeamScores({ currentMatch, Bat }: TeamScoresProps) {
             </div>
 
             <div className="text-[#252775] dark:text-white my-auto">
-              <text className="my-auto py-4 text-sm">
+              <text className="my-auto py-4 text-sm uppercase">
                 {startTime}
               </text>
               <div className="my-auto px-6 py-2 border border-[#252775] dark:border-[#5E5E5E] rounded-lg">
@@ -45,8 +49,8 @@ export default function TeamScores({ currentMatch, Bat }: TeamScoresProps) {
             </div>
 
             {/* Team B */}
-            <div className="flex flex-col">
-                <span className='font-bold'>{currentMatch.oTeamScoreB?.oTeam?.sAbbr}</span>
+            <div className="flex flex-col text-center">
+                <span className='font-bold text-lg pl-2'>{currentMatch.oTeamScoreB?.oTeam?.sAbbr}</span>
                 <img 
                     className="w-20 ml-2 mt-1 mx-auto my-2"
                     src={currentMatch.oTeamScoreB?.oTeam?.oImg?.sUrl ? `${S3_PREFIX}${currentMatch?.oTeamScoreB?.oTeam?.oImg?.sUrl}` : 
