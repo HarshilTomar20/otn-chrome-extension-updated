@@ -64,7 +64,7 @@ function App() {
 
       {matches.length > 0 && ( 
         <>
-        <MatchSeriesInfo currentMatch={currentMatch}/>
+        <MatchSeriesInfo theme={theme} currentMatch={currentMatch}/>
           <div className='flex'>
             <ScrollerLeft theme={theme} goToPreviousMatch={goToPreviousMatch} matches={matches}/>
             <div className='border-black dark:border-zinc-600 w-11/12 rounded-t-lg text-center m-4'>
