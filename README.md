@@ -6,25 +6,30 @@
 
 # Installation
 
-- Go to any browser of Choice and on tip right click on Extensions Logo: ![alt text](image-2.png)
-- Further in the Menu, on the bottom click `Manage Extensions`
-- Enable developer mode : ![alt text](image-3.png)
-- Click load unpacked on top Left, go to the codebase folder and choose the `dist folder`
-- Successfully addition throws `Extension Loaded`
-- That adds the extension to your browser
-- Reference Resources: https://youtu.be/gtF2nHVjqFk?feature=shared&t=121
+- Go to any browser of choice and on the top right, click on the Extensions logo: 
+<img src="image-2.png" alt="Extensions Logo" height="20">
+- Further in the menu, at the bottom, click `Manage Extensions`
+- Enable Developer Mode: 
+<img src="image-3.png" alt="Enable Developer Mode" height="20">
+- Click **Load unpacked** on the top left, go to the codebase folder, and choose the `dist` folder
+- A successful addition will display `Extension Loaded`
+- This adds the extension to your browser
+- Reference Resources: [YouTube Tutorial](https://youtu.be/gtF2nHVjqFk?feature=shared&t=121)
 
 # Bookmarking
 
-- After installation, click on Extensions Logo: ![alt text](image-2.png), you will see `One Turf Cricket`, click the pin logo besides it which will bookmark it to your browser
-- Simply click on the extension to See it Live
+- After installation, click on the Extensions logo: 
+<img src="image-2.png" alt="Extensions Logo" height="20">, you will see `One Turf Cricket`. Click the pin logo beside it to bookmark it to your browser
+- Simply click on the extension to see it live
 
 # View
+
 - Light Mode: 
-![alt text](image-1.png)
+<img src="image-1.png" alt="Light Mode" height="200">
 
 - Dark Mode:
-![alt text](image.png)# otn-chrome-extension-updated
+<img src="image.png" alt="Dark Mode" height="200">
 
-# Implementation Documentation: 
-- https://docs.google.com/document/d/1mNihqPlbcD_SWOhXUYSXFok4iNyHpVQuben8BiV0oao/edit?usp=sharing
+# Implementation Documentation
+
+- [Technical Documentation](https://docs.google.com/document/d/1mNihqPlbcD_SWOhXUYSXFok4iNyHpVQuben8BiV0oao/edit?usp=sharing)
