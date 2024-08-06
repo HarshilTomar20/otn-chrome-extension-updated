@@ -6,12 +6,10 @@
 
 # Installation
 
-- Go to any browser of choice and on the top right, click on the Extensions logo: 
-<img src="image-2.png" alt="Extensions Logo" height="20">
+- Go to any browser of choice and on the top right, click on the Extensions logo: <img src="image-2.png" alt="Extensions Logo" height="20">
 - Further in the menu, at the bottom, click `Manage Extensions`
-- Enable Developer Mode: 
-<img src="image-3.png" alt="Enable Developer Mode" height="20">
-- Click **Load unpacked** on the top left, go to the codebase folder, and choose the `dist` folder
+- Enable Developer Mode: <img src="image-3.png" alt="Enable Developer Mode" height="20">
+- Click **Load unpacked** on the top left, go to the codebase folder, and choose the `dist` folder.
 - A successful addition will display `Extension Loaded`
 - This adds the extension to your browser
 - Reference Resources: [YouTube Tutorial](https://youtu.be/gtF2nHVjqFk?feature=shared&t=121)
